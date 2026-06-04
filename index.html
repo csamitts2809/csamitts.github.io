@@ -65,6 +65,39 @@
 
         .hero h1 { margin-bottom: 10px; }
 
+        /* Sections Layout */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            color: #002b49;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* About Me Styling */
+        .about-box {
+            background-color: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .highlight-bar {
+            background-color: #f0f4f8;
+            border-left: 4px solid #002b49;
+            padding: 15px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
         /* Services Section Buttons */
         .services-menu {
             display: grid;
@@ -119,7 +152,6 @@
 
         /* Contact Us Section */
         .contact-section {
-            margin-top: 60px;
             background-color: #002b49;
             color: white;
             padding: 40px;
@@ -179,6 +211,7 @@
     <nav>
         <div class="logo">Amitt Senha & Associates</div>
         <div class="nav-links">
+            <a href="#about">About Me</a>
             <a href="#services">Our Services</a>
             <a href="#contact">Contact Us</a>
         </div>
@@ -190,6 +223,26 @@
         <section class="hero">
             <h1>Professional Corporate & Secretarial Services</h1>
             <p>Ensuring absolute compliance, governance, and strategic legal clarity for your business.</p>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Founder</h2>
+            <div class="about-box">
+                <div class="about-text">
+                    <p>I, <strong>Amitt Senha</strong>, am the founder of our Firm and recently commenced practice in 2021. I am a qualified Company Secretary and admitted to practice vide registration no. <strong>24969</strong> by The Institute of Company Secretaries of India (ICSI). In addition to this, I am a qualified lawyer with a total experience of more than 15 years.</p>
+                    
+                    <p>Before entering dynamic active practice, I had a vast experience having worked with corporates like Stock Exchanges, Shipping, Real Estate, etc. My last stint was as Company Secretary and Legal lead with Gwalior Smart City Development Corporation Limited, a prestigious joint venture with Central and State Governments.</p>
+                    
+                    <div class="highlight-bar">
+                        Our ultimate aim is to build long-term relationships with all our clients. We believe that the absolute essence of building such a relationship is the uncompromising quality of service and the targeted expertise that we provide.
+                    </div>
+
+                    <p>In addition to standard corporate compliance experience, we are rendering specialized services in the areas of Corporate Laws, Corporate Governance issues, drafting/vetting of agreements with merchants, distributors, retailers, Non-Disclosure Agreements (NDAs), Employment contracts, and Corporate Restructuring. With a vast network of associates spread across various cities in India, we seamlessly deal with Intellectual Property Rights (IPRs), FEMA regulations, Listing compliances, and funding of Corporates, apart from routine incorporation of companies and annual filings with the Ministry of Corporate Affairs (MCA).</p>
+                    
+                    <p>The strategic combination of deep-dive corporate expertise and local market knowledge enables us to remain highly competitive without ever compromising on quality deliverables.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Services Section -->
@@ -338,10 +391,14 @@
                     Lucknow, 226016</p>
                 </div>
                 <div class="contact-form">
-                    <form action="#" method="POST" onsubmit="alert('Thank you! Your message has been simulated.'); return false;">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message or Consultation Request" rows="4" required></textarea>
+                    <!-- Update with Web3Forms Access Key when you have it -->
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Website Inquiry - Amitt Senha & Associates">
+                        
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message or Consultation Request" rows="4" required></textarea>
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
@@ -372,6 +429,7 @@
     </script>
 
 </body>
+</html>
   <!-- ========================================== -->
 <!-- COMBINED PORTION (DISCLAIMER POP-UP & LOGIC) -->
 <!-- ========================================== -->
