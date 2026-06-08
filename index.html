@@ -376,7 +376,191 @@
             element.classList.add('active');
         }
     </script>
+<div class="review-box-container">
+    <h2>Our Reviews</h2>
+    
+    <form action="https://api.web3forms.com/submit" method="POST" id="client-review-form">
+        
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="form_name" value="review CS amitt senha">
+        <input type="hidden" name="subject" value="New Review Posted for CS Amitt Senha">
+        <input type="hidden" name="redirect" value="window.location.href">
 
+        <div class="form-group">
+            <input type="text" id="reviewer-name" name="name" placeholder="Enter Your Full Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="reviewer-email" name="email" placeholder="Enter Your Email ID" required>
+        </div>
+
+        <div class="star-rating-block">
+            <span class="rating-label">Select Rating:</span>
+            <div class="stars-input">
+                <input type="radio" id="star5" name="star_rating" value="5" required><label for="star5" title="5 stars">★</label>
+                <input type="radio" id="star4" name="star_rating" value="4"><label for="star4" title="4 stars">★</label>
+                <input type="radio" id="star3" name="star_rating" value="3"><label for="star3" title="3 stars">★</label>
+                <input type="radio" id="star2" name="star_rating" value="2"><label for="star2" title="2 stars">★</label>
+                <input type="radio" id="star1" name="star_rating" value="1"><label for="star1" title="1 star">★</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <textarea id="reviewer-text" name="review_message" placeholder="Write your professional experience/feedback here..." rows="4" required></textarea>
+        </div>
+
+        <button type="submit" id="submit-review-btn">Submit Review</button>
+    </form>
+
+    <hr class="review-divider">
+
+    <h3>Recent Client Testimonials</h3>
+    <div id="reviews-display-wall">
+        <div class="individual-review-card">
+            <div class="card-header">
+                <strong>Sreejith Nair</strong>
+                <span class="card-stars">★★★★★</span>
+            </div>
+            <p>"Prompt service and expert guidance."</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .review-box-container {
+        max-width: 650px;
+        margin: 40px auto;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        font-family: Arial, sans-serif;
+    }
+    .review-box-container h2, .review-box-container h3 {
+        color: #d32f2f;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+    /* Star Rating CSS rules (Reverse order logic for CSS hover mechanics) */
+    .star-rating-block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .rating-label {
+        font-size: 14px;
+        color: #333;
+        margin-right: 10px;
+    }
+    .stars-input {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    .stars-input input {
+        display: none;
+    }
+    .stars-input label {
+        font-size: 28px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.1s ease;
+    }
+    .stars-input input:checked ~ label,
+    .stars-input label:hover,
+    .stars-input label:hover ~ label {
+        color: #ffb300; /* Amber Gold Stars */
+    }
+    #submit-review-btn {
+        width: 100%;
+        background-color: #d32f2f;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #submit-review-btn:hover {
+        background-color: #b71c1c;
+    }
+    .review-divider {
+        margin: 30px 0;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+    /* Display Wall Cards styling */
+    .individual-review-card {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        border-left: 4px solid #d32f2f;
+    }
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    .card-stars {
+        color: #ffb300;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("client-review-form");
+        const displayWall = document.getElementById("reviews-display-wall");
+
+        // Load existing locally simulated typed reviews on start
+        let localReviews = JSON.parse(localStorage.getItem("simulatedReviews")) || [];
+        localReviews.forEach(rev => renderReviewCard(rev.name, rev.stars, rev.msg));
+
+        form.addEventListener("submit", function(e) {
+            // Read values
+            const name = document.getElementById("reviewer-name").value;
+            const msg = document.getElementById("reviewer-text").value;
+            const selectedStarInput = document.querySelector('input[name="star_rating"]:checked');
+            const starCount = selectedStarInput ? parseInt(selectedStarInput.value) : 5;
+            
+            const starString = "★".repeat(starCount) + "☆".repeat(5 - starCount);
+
+            // Append to screen wall immediately for local session visibility
+            renderReviewCard(name, starString, msg);
+
+            // Store locally so it stays visible on reload/refresh
+            localReviews.push({ name: name, stars: starString, msg: msg });
+            localStorage.setItem("simulatedReviews", JSON.stringify(localReviews));
+            
+            // The form will now proceed to quietly submit data to Web3Forms backend email loop
+        });
+
+        function renderReviewCard(name, stars, text) {
+            const card = document.createElement("div");
+            card.className = "individual-review-card";
+            card.innerHTML = `
+                <div class="card-header">
+                    <strong>${name}</strong>
+                    <span class="card-stars">${stars}</span>
+                </div>
+                <p>"${text}"</p>
+            `;
+            // Inserts new review right at the top of the wall list
+            displayWall.insertBefore(card, displayWall.firstChild);
+        }
+    });
+</script>
 </body>
 <!DOCTYPE html>
 <head>
