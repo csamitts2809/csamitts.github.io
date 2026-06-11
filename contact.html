@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Amitt Senha | Contact Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('wp.jpej');
+            background-size: 50vmin;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #ffffff;
+        }
 
+        /* Navigation Bar */
+        nav {
+            background-color: #002b49; 
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo { color: white; font-size: 1.4rem; font-weight: bold; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .nav-links a:hover { color: #d4af37; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* Contact Section Theme */
+        .contact-section { 
+            background-color: #002b49; 
+            color: white; 
+            padding: 45px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .contact-section h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+
+        .contact-details h3 {
+            color: #d4af37;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p {
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .contact-details a { 
+            color: #d4af37; 
+            text-decoration: none; 
+            font-weight: 500; 
+        }
+        
+        .contact-details a:hover { 
+            text-decoration: underline; 
+        }
+
+        /* Form Configuration */
+        .contact-form input, .contact-form textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            border-radius: 4px; 
+            border: 1px solid #ccc; 
+            box-sizing: border-box; 
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .contact-form button { 
+            background-color: #d4af37; 
+            color: #002b49; 
+            border: none; 
+            padding: 14px 30px; 
+            font-weight: bold; 
+            font-size: 15px;
+            cursor: pointer; 
+            border-radius: 4px; 
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover { 
+            background-color: #bfa030; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CS Amitt Senha</div>
+        <div class="nav-links">
+            <a href="index.html#about">About Me</a>
+            <a href="index.html#why-choose-us">Why Choose Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="index.html#testimonials">Testimonials</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                
+                <div class="contact-details">
+                    <h3>Get In Touch</h3>
+                    <p><strong>Firm Name:</strong> CS Amitt Senha</p>
+                    <p><strong>Email:</strong> <a href="mailto:csamitts@gmail.com">csamitts@gmail.com</a></p>
+                    <p><strong>Mobile:</strong> <a href="tel:+919594493342">+91 9594493342</a></p>
+                    <p><strong>LinkedIn Profile:</strong> <a href="https://linkedin.com/in/amitt-senha-cs" target="_blank">linkedin.com/in/amitt-senha-cs ↗</a></p>
+                    <p><strong>Office Address:</strong><br>
+                        R-120 RGF, Sukh Complex,<br>
+                        Munshi Puliya, Indira Nagar,<br>
+                        Lucknow, 226016
+                    </p>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="0a7b05d8-bc13-4d6b-ae4b-569ce9c7318e">
+                        <input type="hidden" name="subject" value="New Website Inquiry - CS Amitt Senha">
+                        
+                        <input type="hidden" name="redirect" value="https://csamitts2809.github.io/csamitts.github.io/contact.html">
+
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message or Consultation Request" rows="5" required></textarea>
+                        
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
