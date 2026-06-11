@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Amitt Senha | Services</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('wp.jpej');
+            background-size: 50vmin;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #ffffff;
+        }
 
+        nav {
+            background-color: #002b49; 
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo { color: white; font-size: 1.4rem; font-weight: bold; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .nav-links a:hover { color: #d4af37; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        section { margin-bottom: 50px; }
+        h2 { color: #002b49; border-bottom: 2px solid #d4af37; padding-bottom: 8px; margin-bottom: 20px; }
+
+        .services-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-btn {
+            background-color: white;
+            color: #002b49;
+            border: 2px solid #002b49;
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-btn:hover, .service-btn.active {
+            background-color: #002b49;
+            color: white;
+        }
+
+        .service-display-box {
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #d4af37;
+        }
+
+        .service-content { display: none; }
+        .service-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+        /* FEMA Styles */
+        .fema-container { padding: 10px 0; }
+        .fema-main-title { color: #000000; font-size: 24px; font-weight: 700; margin-bottom: 15px; }
+        .fema-intro-text { font-size: 15px; line-height: 1.7; color: #444444; text-align: justify; }
+        .text-highlight { font-weight: 500; color: #222222; border-left: 4px solid #000000; padding-left: 15px; background-color: #fcf8f8; padding-top: 10px; padding-bottom: 10px; }
+        .fema-subtitle { color: #000000; font-size: 20px; margin-top: 30px; font-weight: 600; }
+        .fema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; margin-top: 20px; }
+        .fema-card { background: #ffffff; border: 1px solid #eef0f2; border-radius: 6px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .fema-card h4 { color: #000000; margin-top: 0; font-size: 16px; font-weight: 600; }
+        .fema-container ul { padding-left: 20px; }
+        .fema-container li { font-size: 13.5px; line-height: 1.6; color: #555555; margin-bottom: 8px; }
+        .fema-container li::marker { color: #d32f2f; }
+        .fema-footer-box { background-color: #ffffff; border: 1px solid #eef0f2; padding: 25px; border-radius: 6px; margin-top: 30px; }
+        .fema-footer-box h4 { color: #000000; margin-top: 0; font-size: 18px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CS Amitt Senha</div>
+        <div class="nav-links">
+            <a href="index.html#about">About Me</a>
+            <a href="index.html#why-choose-us">Why Choose Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="index.html#testimonials">Testimonials</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="services">
+            <h2>Corporate & Regulatory Advisory Services</h2>
+            <p>Click on any capability below to review our focus parameters and execution framework:</p>
+
+            <div class="services-menu">
+                <button class="service-btn active" onclick="showService('incorporation', this)">Business Setup & Structuring</button>
+                <button class="service-btn" onclick="showService('retainership', this)">Compliance Retainership Services</button>
+                <button class="service-btn" onclick="showService('due-diligence', this)">Due Diligence</button>
+                <button class="service-btn" onclick="showService('governance-adv', this)">Corporate Governance Advisory</button>
+                <button class="service-btn" onclick="showService('fema', this)">FEMA & Cross-Border Compliance Services</button>
+                <button class="service-btn" onclick="showService('fundraising', this)">Fundraising</button>
+                <button class="service-btn" onclick="showService('ipr', this)">Intellectual Property Rights (IPR) Support</button>
+                <button class="service-btn" onclick="showService('sec-audit', this)">Secretarial Audit & Compliance Management</button>
+                <button class="service-btn" onclick="showService('business-adv', this)">Business Advisory & Special Assignments</button>
+            </div>
+
+            <div class="service-display-box">
+                <div id="incorporation" class="service-content active">
+                    <h3>Business Setup & Structuring</h3>
+                    <p>Every successful business begins with the right legal foundation. We assist entrepreneurs, startups, family businesses, and investors in establishing suitable business structures, including Private Limited Companies, Public Companies, One Person Companies (OPCs), Section 8 Companies, and Limited Liability Partnerships (LLPs). Our services cover end-to-end incorporation support, regulatory registrations, documentation, and post-incorporation compliance guidance, ensuring a smooth and legally compliant business launch.</p>
+                </div>
+                <div id="retainership" class="service-content">
+                    <h3>Compliance Retainership Services</h3>
+                    <p>Regulatory compliance is not a one-time activity but an ongoing responsibility. Our retainership services provide businesses with continuous professional support for corporate, secretarial, and regulatory matters. Acting as your extended compliance partner, we assist in maintaining statutory records, conducting periodic compliance reviews, advising management on regulatory developments, and ensuring timely filings under applicable laws.</p>
+                </div>
+                <div id="due-diligence" class="service-content">
+                    <h3>Due Diligence</h3>
+                    <p>In today’s dynamic business environment, informed decisions require thorough verification and risk assessment. We conduct comprehensive legal and secretarial due diligence for mergers, acquisitions, investments, fundraising transactions, and strategic business decisions. Our reviews focus on statutory compliance, corporate records, governance practices, regulatory risks, and potential liabilities, helping stakeholders make confident and informed decisions.</p>
+                </div>
+                <div id="governance-adv" class="service-content">
+                    <h3>Corporate Governance Advisory</h3>
+                    <p>Strong governance frameworks create sustainable businesses and inspire stakeholder confidence. We assist companies in implementing robust corporate governance practices that promote transparency, accountability, ethical decision-making, and regulatory compliance. Our advisory services support boards, promoters, and management teams in establishing governance structures aligned with business objectives and regulatory expectations.</p>
+                </div>
+
+                <div id="fema" class="service-content">
+                    <div class="fema-container">
+                        <h2 class="fema-main-title">FEMA & Cross-Border Compliance Services</h2>
+                        <p class="fema-intro-text">In an increasingly globalized business environment, cross-border transactions are subject to a complex framework of regulatory, secretarial, taxation, and reporting requirements. Non-compliance with the provisions of the Foreign Exchange Management Act, 1999 (FEMA) and related regulations can result in significant penalties and regulatory challenges.</p>
+                        <p class="fema-intro-text text-highlight">We provide comprehensive advisory and compliance support to Indian companies, foreign investors, overseas entities, NRIs, and start-ups engaged in international business activities. Our services are designed to ensure seamless compliance with FEMA, Reserve Bank of India (RBI) regulations, the Companies Act, 2013, and allied laws.</p>
+                        <h3 class="fema-subtitle">Our Areas of Expertise</h3>
+                        <div class="fema-grid">
+                            <div class="fema-card">
+                                <h4>Foreign Direct Investment (FDI)</h4>
+                                <ul>
+                                    <li>Advisory on entry routes, sectoral caps, and investment structures.</li>
+                                    <li>Assistance in issue and transfer of shares to non-residents.</li>
+                                    <li>FEMA compliance for rights issues, bonus issues, ESOPs, and convertible instruments.</li>
+                                    <li>Filing and reporting of FDI transactions through the RBI reporting framework.</li>
+                                    <li>Compliance support relating to downstream investments.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>Overseas Direct Investment (ODI)</h4>
+                                <ul>
+                                    <li>Structuring and advisory for overseas acquisitions and investments.</li>
+                                    <li>Compliance under the Overseas Investment Rules and Regulations.</li>
+                                    <li>Reporting requirements for foreign subsidiaries and joint ventures.</li>
+                                    <li>Assistance in remittance documentation and RBI compliances.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>External Commercial Borrowings (ECB)</h4>
+                                <ul>
+                                    <li>Advisory on ECB eligibility, borrowing limits, and end-use restrictions.</li>
+                                    <li>Assistance in documentation and reporting requirements.</li>
+                                    <li>Compliance monitoring throughout the tenure of the borrowing.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>NRI & Foreign National Advisory</h4>
+                                <ul>
+                                    <li>FEMA advisory relating to acquisition, transfer, and inheritance of assets in India.</li>
+                                    <li>Investment and repatriation-related compliances.</li>
+                                    <li>Advisory on NRI shareholding and ownership structures.</li>
+                                    <li>Assistance in opening and operating business ventures in India.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>Cross-Border Mergers, Acquisitions & Restructuring</h4>
+                                <ul>
+                                    <li>FEMA due diligence and transaction structuring.</li>
+                                    <li>Regulatory compliance for mergers, demergers, and business reorganizations involving foreign entities.</li>
+                                    <li>Secretarial and corporate law support for cross-border transactions.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>Foreign Investment Reporting & RBI Compliances</h4>
+                                <ul>
+                                    <li>Filing of statutory returns and reporting forms with regulatory authorities.</li>
+                                    <li>Assistance in valuation-related compliance requirements.</li>
+                                    <li>Regular compliance monitoring and advisory support.</li>
+                                    <li>FEMA audit support and compliance reviews.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>Secretarial Compliance Support</h4>
+                                <ul>
+                                    <li>Board and shareholder approvals for foreign investment transactions.</li>
+                                    <li>Drafting of resolutions, notices, agreements, and corporate documents.</li>
+                                    <li>Compliance under the Companies Act, 2013 relating to foreign investments and overseas transactions.</li>
+                                    <li>Maintenance of statutory records and corporate governance support.</li>
+                                </ul>
+                            </div>
+                            <div class="fema-card">
+                                <h4>FEMA Due Diligence & Compliance Audits</h4>
+                                <ul>
+                                    <li>Review of historical FEMA compliances.</li>
+                                    <li>Identification of non-compliances and risk assessment.</li>
+                                    <li>Advisory on compounding of contraventions and regularization of transactions.</li>
+                                    <li>FEMA compliance health checks for investors and businesses.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="fema-footer-box">
+                            <h4>International Tax & Regulatory Coordination</h4>
+                            <p>In association with experienced tax professionals and subject matter experts, we facilitate:</p>
+                            <ul>
+                                <li>Tax-efficient structuring of cross-border transactions.</li>
+                                <li>Advisory on withholding tax obligations and remittance-related tax requirements.</li>
+                                <li>Assistance relating to Double Taxation Avoidance Agreements (DTAAs).</li>
+                                <li>Coordination for transfer pricing, international taxation, and related compliance matters.</li>
+                                <li>Support in obtaining tax opinions and certifications wherever required.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fundraising" class="service-content">
+                    <h3>Fundraising</h3>
+                    <p>Access to capital is critical for business growth. We assist in preparing investment-ready documentation, conducting preliminary compliance reviews, and coordinating with stakeholders throughout the fundraising process.</p>
+                </div>
+                <div id="ipr" class="service-content">
+                    <h3>Intellectual Property Rights (IPR) Support</h3>
+                    <p>We assist clients in protecting and managing intellectual property, including trademarks, copyrights, patents, and related rights.</p>
+                </div>
+                <div id="sec-audit" class="service-content">
+                    <h3>Secretarial Audit & Regulatory Compliance Management</h3>
+                    <p>We provide comprehensive secretarial and regulatory compliance support, including compliance audits, corporate restructuring assistance, and advisory services under corporate laws.</p>
+                </div>
+                <div id="business-adv" class="service-content">
+                    <h3>Business Advisory & Special Assignments</h3>
+                    <p>We provide customized advisory services on corporate restructuring, capital transactions, governance matters, and strategic regulatory planning.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showService(serviceId, element) {
+            var contents = document.getElementsByClassName('service-content');
+            for (var i = 0; i < contents.length; i++) { contents[i].classList.remove('active'); }
+            var buttons = document.getElementsByClassName('service-btn');
+            for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+            document.getElementById(serviceId).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
