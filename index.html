@@ -19,37 +19,6 @@
             background-color: #ffffff;
         }
 
-        /* Navigation Bar */
-        nav {
-            background-color: #002b49; 
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #d4af37; 
-        }
-
         .container {
             max-width: 1100px;
             margin: 40px auto;
@@ -69,7 +38,7 @@
 
         section {
             margin-bottom: 50px;
-            scroll-margin-top: 100px;
+            scroll-margin-top: 140px; /* Prevents header from blocking titles when jumping links */
         }
 
         h2 {
@@ -138,7 +107,6 @@
         .review-date { font-size: 13px; color: #777777; }
         .review-stars { color: #ffb300; font-size: 18px; margin-bottom: 12px; }
         .rating-number { font-size: 14px; color: #555555; font-weight: bold; margin-left: 5px; }
-
         .review-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
         .tag {
             background-color: #f1f8e9;
@@ -149,10 +117,9 @@
             font-size: 12px;
             font-weight: 500;
         }
-
         .review-body { font-size: 14px; line-height: 1.6; color: #444444; margin: 0; text-align: justify; }
 
-        /* Disclaimer Modal */
+        /* Disclaimer Pop-up Modal */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -178,7 +145,6 @@
         .modal-text p { margin-bottom: 15px; }
         .modal-buttons { display: flex; gap: 15px; }
         .modal-btn { flex: 1; padding: 12px; font-size: 15px; font-weight: bold; border-radius: 4px; cursor: pointer; text-align: center; }
-        
         #agree-button { background-color: #d32f2f; color: #ffffff; border: none; }
         #agree-button:hover { background-color: #b71c1c; }
         #disagree-button { background-color: #ffffff; color: #666666; border: 1px solid #cccccc; }
@@ -202,19 +168,25 @@
         </div>
     </div>
 
-    <nav>
-        <div class="logo">CS Amitt Senha</div>
-        <div class="nav-links">
-            <a href="index.html#about">About Me</a>
-            <a href="index.html#why-choose-us">Why Choose Us</a>
-            <a href="services.html">Our Services</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="index.html#testimonials">Testimonials</a>
-            <a href="https://linkedin.com/in/amitt-senha-cs" target="_blank" style="color: #00a0dc;">LinkedIn ↗</a>
+    <div style="background-color: #002b49; padding: 1.2rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style="max-width: 1100px; margin: 0 auto; color: white; font-size: 1.5rem; font-weight: bold; font-family: 'Segoe UI', Arial, sans-serif;">
+            CS Amitt Senha
         </div>
-    </nav>
+    </div>
+
+    <div style="background-color: #ffffff; padding: 1rem 2rem; border-bottom: 1px solid #eef0f2; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 25px; font-family: 'Segoe UI', Arial, sans-serif;">
+            <a href="index.html#about" style="color: #333333; text-decoration: none; font-weight: 600; font-size: 0.95rem;">About Me</a>
+            <a href="index.html#why-choose-us" style="color: #333333; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Why Choose Us</a>
+            <a href="services.html" style="color: #333333; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Our Services</a>
+            <a href="contact.html" style="color: #333333; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Contact Us</a>
+            <a href="index.html#testimonials" style="color: #333333; text-decoration: none; font-weight: 600; font-size: 0.95rem;">Testimonials</a>
+            <a href="https://linkedin.com/in/amitt-senha-cs" target="_blank" style="color: #00a0dc; text-decoration: none; font-weight: 600; font-size: 0.95rem;">LinkedIn ↗</a>
+        </div>
+    </div>
 
     <div class="container">
+
         <section class="hero">
             <h1>Professional Corporate & Secretarial Services</h1>
             <p>Ensuring absolute compliance, governance, and strategic legal clarity for your business.</p>
@@ -235,9 +207,13 @@
 
         <section id="why-choose-us">
             <h2>Why Choose Us</h2>
-            <div class="content-box" style="min-height: 150px;">
-                <p style="color: #000000; text-align: center; padding-top: 40px;">Our approach combines regulatory understanding, practical business insight, and coordinated professional support to deliver end-to-end solutions for cross-border transactions. By integrating FEMA advisory with corporate secretarial expertise and coordinated tax support, we help businesses navigate international transactions efficiently while maintaining full regulatory compliance.</p>
-                <p style="color: #000000; text-align: center; padding-top: 40px;"> Whether you are a start-up seeking foreign investment, an established business expanding overseas, an NRI investing in India, or a foreign entity entering the Indian market, we provide reliable guidance through every stage of your cross-border journey.</p>
+            <div class="content-box">
+                <p style="color: #000000; font-weight: 500;">
+                    We are dedicated to providing absolute compliance and strategic clarity. Our firm combines deep corporate expertise with practical, legally sound solutions to help your business navigate complex regulatory landscapes smoothly.
+                </p>
+                <p style="color: #000000; font-weight: 500;">
+                    By prioritizing long-term relationships, we ensure that our clients receive uncompromising quality of service tailored specifically to their individual corporate goals and market needs.
+                </p>
             </div>
         </section>
 
